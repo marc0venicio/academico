@@ -1,6 +1,6 @@
 <?php 
   /*
-    template name: Cursos 
+    template name: Cursoss 
   */
 ?>
 <?php get_header();?>
@@ -28,23 +28,23 @@
         <div class="container">
             <div class="row">
             <?php 
-        // args
-        $my_args = array(
-          'post_type' => 'cursos',
-          'posts_per_page' => -1,
-        );
+                // args
+                $my_args = array(
+                  'post_type' => 'cursos',
+                  'posts_per_page' => 5,
+                );
 
-        // query
-        $my_query = new WP_Query ( $my_args );
-        ?>
+                // query
+                $my_query = new WP_Query ( $my_args );
+                ?>
 
-        <?php if( $my_query->have_posts()) : while( $my_query->have_posts() ) : $my_query->the_post(); ?>
+                <?php if( $my_query->have_posts()) : while( $my_query->have_posts() ) : $my_query->the_post(); ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="course-1-item">
-                        <figure class="thumbnail">
-                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail', array('class' => 'img-fluid')); ?></a>
+                        <figure class="thumnail">
+                        <a href="course-single.html"><?php the_post_thumbnail('post-thumbnail', array('class' => 'img-fluid')); ?></a>
                         <div class="price">$99.00</div>
-                        <div class="category"> <h3><?php the_title(); ?></h3></div>  
+                        <div class="category"><h3><?php the_title();?></h3></div>  
                         </figure>
                         <div class="course-1-content pb-4">
                         <h2>How To Create Mobile Apps Using Ionic</h2>
@@ -55,17 +55,13 @@
                             <span class="icon-star2 text-warning"></span>
                             <span class="icon-star2 text-warning"></span>
                         </div>
-                        <div class="card border-card-footer">
-                      <div class="card-body">
-                        <?php the_content(); ?>
-                      </div>
-                      </div>   
-                        <p><a href="#" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                        <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
+                        <p><a href="<?php the_permalink(); ?>" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                         </div>
                     </div>
                 </div>
-              <?php endwhile; endif; ?>
-              <?php wp_reset_query(); ?>
+                <?php endwhile; endif; ?>
+                  <?php wp_reset_query(); ?>
             </div>
         </div>
     </div>
