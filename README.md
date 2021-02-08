@@ -2,7 +2,7 @@
 Wordpress theme made with bootstrap 4 and PHP
 <h1 align = "center">
 <br>
- <img src = "/img/images/logo.png">
+ <img src = "/images/logo.png">
 <br>
 <br>
 SITE MADE WITH BOOTSTRAP 4 PHP FOR WORDPRESS
