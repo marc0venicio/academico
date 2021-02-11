@@ -13,7 +13,7 @@ function academico_theme_support() {
     // Adicionar o logotipo
     add_theme_support( 'custom-logo' );
 }
-add_action('after_setup_theme', 'academico_theme_support');
+add_action('after_setup_theme', 'academico_theme_support', 'woocommerce_support');
 
 
 // Registra o Custom Navigation Walker
@@ -111,7 +111,24 @@ add_action('init', 'lc_cpt', 0);
 }
 add_action( 'init', 'custom_post_status', 0 );
 
+// integrando o woocommerce
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
+add_action('woocommerce_before_main_content', 'academico_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'academico_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo 'div class="site-wrap"';
+}
+
+function my_theme_wrapper_end() {
+  echo '</div>';
+}
+
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
 
 // Incluir as funções de personalização
 require get_template_directory(). '/inc/customizer.php';
